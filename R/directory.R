@@ -9,6 +9,12 @@ create_folder <- function(location) {
 
 }
 
+
+check_experiment <- function(location) {
+  dir.exists(location)
+}
+
+
 #' creates a tracking folder in the root directory if doesn't
 #' already exist
 check_tracking_folder <- function() {
@@ -54,6 +60,7 @@ add_new_experiment <- function(name) {
   locparams <- paste0(location, "/params")
   locmetrics <- paste0(location, "/metrics")
   locartif <- paste0(location, "/artifacts")
+  locfiles <- paste0(location, "/files")
 
   if(dir.exists(location)) {
     stop("experiment already exists, please choose a different name", call. = FALSE)
@@ -63,7 +70,7 @@ add_new_experiment <- function(name) {
   create_folder(locparams)
   create_folder(locmetrics)
   create_folder(locartif)
-
+  create_folder(locfiles)
 }
 
 

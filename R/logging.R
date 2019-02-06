@@ -55,3 +55,24 @@ log_metric <- function(experiment, metric, as) {
   write(metric, file = location, append = TRUE)
 
 }
+
+
+
+#' Write a file associated with the current experiment to files
+#' @export
+log_file <- function(experiment, filelocation) {
+
+  if(!file.exists(filelocation)) {
+    stop("Cannot find file", call. = FALSE)
+  }
+
+  location <- paste0("./tracking/", experiment, "/files/")
+  file.copy(filelocation, location)
+}
+
+
+
+
+
+
+
